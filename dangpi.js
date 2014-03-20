@@ -1,7 +1,13 @@
-function NgController(controller) {
-  angular.module(controller.module).controller(controller.name, controller.dependencies.concat([controller.controller]));
+function NgPart(component) {
+  var module = angular.module(component.module);
+
+  if     (component.controller) createPart(module, component, 'controller');
+  else if(component.service)    createPart(module, component, 'service');
+  else if(component.factory)    createPart(module, component, 'factory');
 }
 
-function NgService(service) {
-  angular.module(service.module).service(service.name, service.dependencies.concat([service.service]));
+function createPart(module, component, type) {
+  module[type](component.name, component.dependencies.concat([component[type]]));
 }
+
+if(exports) exports.NgPart = NgPart;

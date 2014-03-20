@@ -1,28 +1,20 @@
-declarative-angular-api
+declarative-angular-api [![Build Status](https://secure.travis-ci.org/Horsed/declarative-angular-api.png)](http://travis-ci.org/Horsed/declarative-angular-api)
 =======================
 
-More declarative AngularJS Providers, Factories, Services, Controllers and Directives
+More declarative AngularJS Providers, Factories, Services, Controllers, Directives, Filters
 
 Turn this:
 
 ```js
-angular.module('myModule')
-
-.service('myService',
-
-['$http',
-
-function ($http) {
-  return {
-    // service stuff
-  }
+angular.module('myModule').service('myService', ['$http', function ($http) {
+  // service stuff
 }]);
 ```
 
 into this:
 
 ```js
-NgService({
+NgPart({
 
   module: 'myModule',
 
@@ -31,9 +23,7 @@ NgService({
   dependencies: ['$http'],
 
   service: function($http) {
-    return {
-      // service stuff
-    };
+    // service stuff
   }
 });
 ```
@@ -61,20 +51,25 @@ TBD
 ### Factory
 
 ```js
-TBD
+NgPart({
+  module: 'myModule',
+  name: 'myFactory',
+  dependencies: ['$http'],
+  factory: function($http) {
+    // factory stuff
+  }
+});
 ```
 
 ### Service
 
 ```js
-NgService({
+NgPart({
   module: 'myModule',
   name: 'myService',
   dependencies: ['$http'],
   service: function($http) {
-    return {
-      // service stuff
-    };
+    // service stuff
   }
 });
 ```
@@ -82,7 +77,7 @@ NgService({
 ### Controller
 
 ```js
-NgController({
+NgPart({
   module: 'myModule',
   name: 'myCtrl',
   dependencies: ['$scope', '$routeParams'],  
@@ -93,6 +88,12 @@ NgController({
 ```
 
 ### Directive
+
+```js
+TBD
+```
+
+### Filter
 
 ```js
 TBD

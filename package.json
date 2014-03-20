@@ -1,0 +1,35 @@
+{
+  "name": "declarative-angular-api",
+  "version": "0.2.0",
+  "description": "More declarative AngularJS Providers, Factories, Services, Controllers and Directives",
+  "main": "dangpi.js",
+  "private": true,
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Horsed/declarative-angular-api.git"
+  },
+  "keywords": [
+    "angularjs",
+    "declarative",
+    "api"
+  ],
+  "author": "Martin Knopf <legendaryhorsed@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Horsed/declarative-angular-api/issues"
+  },
+  "homepage": "https://github.com/Horsed/declarative-angular-api",
+  "devDependencies": {
+    "should": "~3.2.0-beta1",
+    "mocha": "~1.18.2",
+    "sinon-chai": "~2.5.0",
+    "chai": "~1.9.1",
+    "sinon": "~1.9.0"
+  }
+}
