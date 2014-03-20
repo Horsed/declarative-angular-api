@@ -44,15 +44,11 @@ NgService({
 
     $ bower install declarative-angular-api --save
 
-Include the following in your ```index.html```:
-
-```<script src="/path/to/bower_components/declarative-angular-api/dangpi.js"></script>```
-
 > manually
 
     $ git clone git@github.com:Horsed/declarative-angular-api.git
 
-Copy ```./declarative-angular-api/dangpi.js``` to wherever your JavaScript libraries reside.
+Copy ```./declarative-angular-api/dangpi.js``` to wherever your JavaScript libraries reside and put it in your ```index.html```.
 
 ## Usage
 
