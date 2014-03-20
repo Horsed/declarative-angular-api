@@ -42,7 +42,7 @@ NgService({
 
 > via [bower](http://bower.io/):
 
-  $ bower install declarative-angular-api --save
+    $ bower install declarative-angular-api --save
 
 Include the following in your ```index.html```:
 
@@ -50,7 +50,7 @@ Include the following in your ```index.html```:
 
 > manually
 
-  $ git clone git@github.com:Horsed/declarative-angular-api.git
+    $ git clone git@github.com:Horsed/declarative-angular-api.git
 
 Copy ```./declarative-angular-api/dangpi.js``` to wherever your JavaScript libraries reside.
 
@@ -81,6 +81,7 @@ NgService({
     };
   }
 });
+```
 
 ### Controller
 
