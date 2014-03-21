@@ -90,7 +90,14 @@ NgPart({
 ### Directive
 
 ```js
-TBD
+NgPart({
+  module: 'myModule',
+  name: 'myDirective',
+  dependencies: ['$scope', '$routeParams'],  
+  directive: function($scope, $routeParams) {
+    // directive stuff
+  }
+});
 ```
 
 ### Filter

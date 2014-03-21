@@ -9,11 +9,15 @@ chai.use(sinonChai);
 components = {
   controller: sinon.spy(),
   service: sinon.spy(),
-  factory: sinon.spy()
+  factory: sinon.spy(),
+  directive: sinon.spy(),
 };
 
 angular = {
-  module: sinon.stub().returns(components)
+  module: sinon.stub().returns(components),
+  forEach: function(array, fn) {
+    for(var i = 0, len = array.length; i < len; i++) fn(array[i]);
+  }
 };
 
 describe('[testDangpi.js] Declarative Angular API:', function() {
@@ -69,6 +73,24 @@ describe('[testDangpi.js] Declarative Angular API:', function() {
 
       expect(angular.module).calledWith(expectedFactory.module);
       expect(components.factory).calledWith(expectedFactory.name, ['dep1', 'dep2', expectedFactory.factory]);
+    });
+  });
+
+  describe('When configuring a factory', function() {
+
+    it('should use angulars API to create the directive.', function() {
+
+      var expectedDirective = {
+        module: 'mod',
+        name: 'expectedDirective',
+        dependencies: ['dep1', 'dep2'],
+        directive: function(dep1, dep2) {}
+      };
+
+      Ng.NgPart(expectedDirective);
+
+      expect(angular.module).calledWith(expectedDirective.module);
+      expect(components.directive).calledWith(expectedDirective.name, ['dep1', 'dep2', expectedDirective.directive]);
     });
   });
 });

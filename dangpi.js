@@ -1,13 +1,14 @@
 function NgPart(component) {
   var module = angular.module(component.module);
 
-  if     (component.controller) createPart(module, component, 'controller');
-  else if(component.service)    createPart(module, component, 'service');
-  else if(component.factory)    createPart(module, component, 'factory');
+  angular.forEach(['controller', 'service', 'factory', 'directive'], createPart(module, component));
+
+  function createPart(module, component) {
+    return function(type) {
+      if(component[type]) module[type](component.name, component.dependencies.concat([component[type]]));
+    }
+  }
 }
 
-function createPart(module, component, type) {
-  module[type](component.name, component.dependencies.concat([component[type]]));
-}
 
 if(exports) exports.NgPart = NgPart;
